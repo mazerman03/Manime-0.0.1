@@ -1,0 +1,7 @@
+{
+  "name": "Manime",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
