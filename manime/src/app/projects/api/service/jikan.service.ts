@@ -14,13 +14,31 @@ export class JikanService {
     return this.http.get(requestURL);
   }
 
-  getSeasonList(year: number, season: string ): Observable<any> {
+  getSeasonalAnimeList(year: number, season: string ): Observable<any> {
     const requestURL = `https://api.jikan.moe/v4/seasons/${year}/${season}`
     return this.http.get(requestURL);
   }
 
-  getSeasonListNow(): Observable<any> {
+  getSeasonalAnimeListNow(): Observable<any> {
     const requestURL = `https://api.jikan.moe/v4/seasons/now`
     return this.http.get(requestURL);
   }
+
+  getTopAnimeList(): Observable<any> {
+    const requestURL = `https://api.jikan.moe/v4/top/anime`
+    return this.http.get(requestURL);
+  }
+
+  getAnimeById(id: number): Observable<any> {
+    const requestURL = `https://api.jikan.moe/v4/anime/${id}`
+    return this.http.get(requestURL);
+  }
+
+  getAnimeNews(): Observable<any> {
+    const requestURL = `https://api.jikan.moe/v4/anime/1/news?page=1`
+    return this.http.get(requestURL);
+  }
+
+
+
 }
