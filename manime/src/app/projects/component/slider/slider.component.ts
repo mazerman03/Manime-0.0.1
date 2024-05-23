@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {  } from 'vue';
 
+import 'swiper/css';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
