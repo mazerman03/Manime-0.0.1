@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JikanService } from '../projects/api/service/jikan.service';
-import { GenreResponse, genres } from 'src/models/genre-data.model';
+import { Genre } from 'src/models/genre-data.model';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +8,7 @@ import { GenreResponse, genres } from 'src/models/genre-data.model';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  genreContainerList: genres[] = [];
+  genreContainerList: Genre[] = [];
   genreSelectedValue: any;
  
   constructor(private service: JikanService) {}

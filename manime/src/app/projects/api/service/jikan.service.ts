@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AnimeResponse } from 'src/models/anime-data.model';
 import { GenreResponse } from 'src/models/genre-data.model';
 
 @Injectable({
@@ -20,9 +21,9 @@ export class JikanService {
     return this.http.get(requestURL);
   }
 
-  getSeasonalAnimeListNow(): Observable<any> {
+  getSeasonalAnimeListNow(): Observable<AnimeResponse> {
     const requestURL = `https://api.jikan.moe/v4/seasons/now`
-    return this.http.get(requestURL);
+    return this.http.get<AnimeResponse>(requestURL);
   }
 
   getTopAnimeList(): Observable<any> {

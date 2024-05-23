@@ -1,8 +1,8 @@
 export interface GenreResponse {
-    data: genres[];
+    data: Genre[];
 }
 
-export interface genres {
+export interface Genre {
     mal_id: number;
     name: string;
     url: string;
