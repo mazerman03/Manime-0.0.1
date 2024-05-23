@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JikanService } from '../projects/api/service/jikan.service';
 import { Genre } from 'src/models/genre-data.model';
+import { Anime } from 'src/models/anime-data.model';
 
 @Component({
   selector: 'app-tab2',
@@ -9,12 +10,15 @@ import { Genre } from 'src/models/genre-data.model';
 })
 export class Tab2Page implements OnInit {
   genreContainerList: Genre[] = [];
-  genreSelectedValue: any;
+  animeContainerList: Anime[] = [];
+  genreSelectedValue: number[] = [];;
+ 
  
   constructor(private service: JikanService) {}
 
   ngOnInit(): void {
     this.initializeGenreContainer();
+    this.initializeTopAnimeContainerTest();
   }
 
   initializeGenreContainer() {
@@ -26,5 +30,15 @@ export class Tab2Page implements OnInit {
     });
  }
 
- 
+ genreSelectionChanged(genreEvent: { detail: { value: number[]; }; }){
+  console.log(genreEvent.detail.value)
+  this.genreSelectedValue = genreEvent.detail.value;
+  this.initializeTopAnimeContainerTest();
+ }
+
+ initializeTopAnimeContainerTest(){
+  this.service.getAnimeSearch(this.genreSelectedValue).subscribe(animeEl => {
+    console.log(animeEl);
+    })
+  };
 }

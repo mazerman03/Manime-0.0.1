@@ -10,16 +10,27 @@ import { Anime } from 'src/models/anime-data.model';
 export class Tab1Page implements OnInit {
   sliderContainer: any = [];
   animeContainerList: Anime[] = [];
+  appCardContainer: any = [];
   constructor(private service: JikanService) {}
 
   ngOnInit(): void {
     // this.initializeSliderContainer();
-    this.initializeAnimeContainerListTest();
+    this.initializeSeasonalAnimeContainerListTest();
   }
-  initializeAnimeContainerListTest(){
+  initializeSeasonalAnimeContainerListTest(){
     this.service.getSeasonalAnimeListNow().subscribe(animeEl => {
-      console.log(animeEl);
+      animeEl.data.forEach(element => {
+        this.appCardContainer.push({
+          mal_id: element.mal_id,
+          title: element.title,
+          image: element.images.jpg.small_image_url,
+          score: element.score,
+          modelItem: element,
+
+
+        });
       })
+      });
     }; 
 /*   initializeSliderContainer(){
     this.service.getAnimeNews().subscribe(animeNewsEl => {
