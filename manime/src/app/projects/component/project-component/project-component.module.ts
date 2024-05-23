@@ -14,6 +14,7 @@ import { IonicModule } from '@ionic/angular';
     CommonModule,
     FormsModule, 
     IonicModule
-  ]
+  ],
+  exports: [CardComponent, SliderComponent, ModelPageComponent]
 })
 export class ProjectComponentModule { }

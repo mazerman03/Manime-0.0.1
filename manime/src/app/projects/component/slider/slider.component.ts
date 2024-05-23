@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -12,4 +12,7 @@ export class SliderComponent  implements OnInit {
 
   ngOnInit() {}
 
+  sliderClickEventTrigger(modelValue: any){
+    this.sliderEventTrigger.emit(modelValue);
+  }
 }
