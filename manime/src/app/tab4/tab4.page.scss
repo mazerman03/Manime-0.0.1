@@ -1,13 +1,5 @@
-ion-toolbar {
-    ion-title {
-      text-align: center;
-      width: 100%;
-    }
-  
-  
-  
-    img {
-      border-radius: 50%;
-    }
-  }
-  
+.smaller-avatar {
+    --border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
