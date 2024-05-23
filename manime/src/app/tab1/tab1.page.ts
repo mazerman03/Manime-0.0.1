@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JikanService } from '../projects/api/service/jikan.service';
-import { generate } from 'rxjs';
+
 
 @Component({
   selector: 'app-tab1',
@@ -9,12 +9,12 @@ import { generate } from 'rxjs';
 })
 export class Tab1Page implements OnInit {
   sliderContainer: any = [];
-  genreContainerList: any = [];
+  
   constructor(private service: JikanService) {}
 
   ngOnInit(): void {
     // this.initializeSliderContainer();
-    this.initializeGenreContainer();
+    
   }
 
 /*   initializeSliderContainer(){
@@ -31,11 +31,4 @@ export class Tab1Page implements OnInit {
   } */
 
 
- initializeGenreContainer(){
-  this.service.getGenreList().subscribe(genreEl => {
-    genreEl.genres.forEach((genreElement: any)=>{
-      this.genreContainerList.push(genreElement);
-    });
-  });
- }
 }
