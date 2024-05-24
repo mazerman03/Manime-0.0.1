@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
+import { ProjectComponentModule } from '../projects/component/project-component/project-component.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { Tab4Page } from './tab4.page';
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
-    Tab4PageRoutingModule
+    Tab4PageRoutingModule,
+    ProjectComponentModule
   ],
   declarations: [Tab4Page]
 })
