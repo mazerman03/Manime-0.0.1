@@ -45,12 +45,12 @@ export class JikanService {
   }
 
 
-  getAnimeSearch(genre_id_filtered: number[]): Observable<AnimeResponse> {
-    const requestURL = 'https://api.jikan.moe/v4/anime'
-    const requestURLtop = 'https://api.jikan.moe/v4/top/anime'
+  getAnimeSearch(page: number,genre_id_filtered: number[]): Observable<AnimeResponse> {
+    const requestURL = `https://api.jikan.moe/v4/anime?page=${page}`
+    const requestURLtop = `https://api.jikan.moe/v4/top/anime?page=${page}`
     if (genre_id_filtered !== null && genre_id_filtered.length > 0) {
       const genreList = genre_id_filtered.join(",");
-      const genreQuery = `?genres=${genreList}`
+      const genreQuery = `&genres=${genreList}&order_by=popularity&sort=asc`
       const requestURL2 = `${requestURL}${genreQuery}`
       return this.http.get<AnimeResponse>(requestURL2);
     }else{
