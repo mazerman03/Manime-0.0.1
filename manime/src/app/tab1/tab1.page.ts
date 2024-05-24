@@ -53,7 +53,6 @@ export class Tab1Page implements OnInit {
   
           if (this.page > 1) {
             this.loadingCurrentEventData.target.complete();
-            console.log();
             if (animeEl.pagination.items.count == 0) {
               this.loadingCurrentEventData.target.disabled = true;
             }
@@ -71,7 +70,6 @@ export class Tab1Page implements OnInit {
   }
 
     loadData(event: any) {
-      console.log(this.page, event);
       this.page = this.page + 1;
       this.loadingCurrentEventData = event;
       this.loadSeasonalAnimeContainerList();
