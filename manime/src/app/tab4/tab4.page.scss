@@ -3,3 +3,19 @@
     width: 40px;
     height: 40px;
 }
+
+#message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--ion-toolbar-height));
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 335px;
+    color: #333;
+}
+
+#message strong {
+    font-weight: bold;
+    color: #3880ff;
+}
