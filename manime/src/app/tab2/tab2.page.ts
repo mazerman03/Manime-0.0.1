@@ -32,7 +32,7 @@ export class Tab2Page implements OnInit {
 
  genreSelectionChanged(genreEvent: { detail: { value: number[]; }; }){
   this.genreSelectedValue = genreEvent.detail.value;
-  this.initializeTopAnimeContainerTest();
+  this.initializeTopAnimeContainer();
  }
 
  initializeTopAnimeContainer(){
