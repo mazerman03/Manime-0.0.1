@@ -23,8 +23,16 @@
       <ion-title size="large">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <!-- <app-slider [sliderInputValue]="sliderContainer"></app-slider> -->
-  
+  <ion-grid fixed=true>
+    <ion-row>
+      <ion-col *ngFor="let item of appCardContainer" size-lg="2" size-md="4" size-sm="6" size-xs="6">
+       <app-card [title]="item.title" [image]="item.image" [score]="item.score" [model]="item.modelItem"></app-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
   
   
 </ion-content>

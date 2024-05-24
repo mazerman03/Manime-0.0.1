@@ -12,7 +12,7 @@ export class Tab2Page implements OnInit {
   genreContainerList: Genre[] = [];
   animeContainerList: Anime[] = [];
   genreSelectedValue: number[] = [];;
- 
+  appCardContainer: any = [];
  
   constructor(private service: JikanService) {}
 
@@ -38,7 +38,15 @@ export class Tab2Page implements OnInit {
 
  initializeTopAnimeContainerTest(){
   this.service.getAnimeSearch(this.genreSelectedValue).subscribe(animeEl => {
-    console.log(animeEl);
-    })
+      animeEl.data.forEach(element => {
+        this.appCardContainer.push({
+          mal_id: element.mal_id,
+          title: element.title,
+          image: element.images.jpg.large_image_url,
+          score: element.score,
+          modelItem: element,
+        });
+      })
+     });
   };
 }

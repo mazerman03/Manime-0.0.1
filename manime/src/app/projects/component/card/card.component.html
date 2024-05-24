@@ -1,3 +1,8 @@
-<p>
-  card works!
-</p>
+<div class="card" (click)="cardClickEventTrigger(model)">
+  
+  <div>
+    <ion-badge class="badge">{{score}}</ion-badge>
+    <ion-img [src]="image"></ion-img>
+  </div>
+  <ion-title class="ion-margin-vertical text-content">{{title}}</ion-title>
+</div>

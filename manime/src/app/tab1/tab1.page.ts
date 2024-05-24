@@ -23,7 +23,7 @@ export class Tab1Page implements OnInit {
         this.appCardContainer.push({
           mal_id: element.mal_id,
           title: element.title,
-          image: element.images.jpg.small_image_url,
+          image: element.images.jpg.large_image_url,
           score: element.score,
           modelItem: element,
 
