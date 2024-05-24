@@ -11,14 +11,21 @@ export class Tab1Page implements OnInit {
   sliderContainer: any = [];
   animeContainerList: Anime[] = [];
   appCardContainer: any = [];
+  page: number=1;
+  has_next_page: boolean = true;
+  loadingCurrentEventData: any;
+
   constructor(private service: JikanService) {}
 
   ngOnInit(): void {
     // this.initializeSliderContainer();
-    this.initializeSeasonalAnimeContainerListTest();
+    this.initializeSeasonalAnimeContainerList();
+    this.initializeContainer();
   }
-  initializeSeasonalAnimeContainerListTest(){
-    this.service.getSeasonalAnimeListNow().subscribe(animeEl => {
+
+
+  initializeSeasonalAnimeContainerList(){
+    this.service.getSeasonalAnimeListNow(this.page).subscribe(animeEl => {
       animeEl.data.forEach(element => {
         this.appCardContainer.push({
           mal_id: element.mal_id,
@@ -26,12 +33,49 @@ export class Tab1Page implements OnInit {
           image: element.images.jpg.large_image_url,
           score: element.score,
           modelItem: element,
-
-
         });
-      })
       });
-    }; 
+     });
+    } 
+
+  loadSeasonalAnimeContainerList(){
+    if (this.page > 1) {
+      this.service.getSeasonalAnimeListNow(this.page).subscribe(animeEl => {
+        animeEl.data.forEach(element => {
+          this.appCardContainer.push({
+            mal_id: element.mal_id,
+            title: element.title,
+            image: element.images.jpg.large_image_url,
+            score: element.score,
+            modelItem: element,
+          });
+        });
+  
+          if (this.page > 1) {
+            this.loadingCurrentEventData.target.complete();
+            console.log();
+            if (animeEl.pagination.items.count == 0) {
+              this.loadingCurrentEventData.target.disabled = true;
+            }
+          }
+  
+        });
+    }
+  
+    } 
+
+    
+  initializeContainer() {
+    this.page = 1;
+    this.loadSeasonalAnimeContainerList();
+  }
+
+    loadData(event: any) {
+      console.log(this.page, event);
+      this.page = this.page + 1;
+      this.loadingCurrentEventData = event;
+      this.loadSeasonalAnimeContainerList();
+    }
 /*   initializeSliderContainer(){
     this.service.getAnimeNews().subscribe(animeNewsEl => {
       animeNewsEl.results.forEach((animeNews: { mal_id: number; title: string; images: { jpg: { image_url: string; }; }; }) => {

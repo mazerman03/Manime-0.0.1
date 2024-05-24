@@ -21,10 +21,13 @@ export class JikanService {
     return this.http.get(requestURL);
   }
 
-  getSeasonalAnimeListNow(): Observable<AnimeResponse> {
-    const requestURL = `https://api.jikan.moe/v4/seasons/now`
-    return this.http.get<AnimeResponse>(requestURL);
-  }
+  getSeasonalAnimeListNow(page: number): Observable<AnimeResponse> {
+
+      const requestURL = 'https://api.jikan.moe/v4/seasons/now?filter=tv&sfw'
+      const pageQuery = `&page=${page}`
+      const requestURL2 = `${requestURL}${pageQuery}`
+      return this.http.get<AnimeResponse>(requestURL2);
+  } 
 
   getTopAnimeList(): Observable<AnimeResponse> {
     const requestURL = `https://api.jikan.moe/v4/top/anime`

@@ -18,7 +18,7 @@ export class Tab2Page implements OnInit {
 
   ngOnInit(): void {
     this.initializeGenreContainer();
-    this.initializeTopAnimeContainerTest();
+    this.initializeTopAnimeContainer();
   }
 
   initializeGenreContainer() {
@@ -31,12 +31,11 @@ export class Tab2Page implements OnInit {
  }
 
  genreSelectionChanged(genreEvent: { detail: { value: number[]; }; }){
-  console.log(genreEvent.detail.value)
   this.genreSelectedValue = genreEvent.detail.value;
   this.initializeTopAnimeContainerTest();
  }
 
- initializeTopAnimeContainerTest(){
+ initializeTopAnimeContainer(){
   this.service.getAnimeSearch(this.genreSelectedValue).subscribe(animeEl => {
       animeEl.data.forEach(element => {
         this.appCardContainer.push({
