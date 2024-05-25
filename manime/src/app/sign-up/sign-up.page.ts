@@ -25,6 +25,7 @@ export class SignUpPage implements OnInit {
   
 
   ngOnInit() { }
+
   async submit() {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
@@ -48,4 +49,5 @@ export class SignUpPage implements OnInit {
     }
   }
 }
+
 

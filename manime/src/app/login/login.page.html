@@ -9,23 +9,26 @@
   <div class="login-container">
     <form [formGroup] = "form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
     <!----------- Input Email ------------>
-    <app-custom-input autocomplete="email" [control]="form.controls.email" type="email" label="Correo: "
+    <app-custom-input autocomplete="email" [control]="form.controls.email" type="email" label="Email: "
       icon="mail-outline">
     </app-custom-input>
 
     <!----------- Input Password ------------>
     <app-custom-input icon="lock-closed-outline" [control]="form.controls.password" type="password"
-      label="Contrasena">
+      label="Password">
     </app-custom-input>
 
-    <ion-button expand="block" color="primary" type="submit" >Login</ion-button>
+    <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" routerLink="tabs" >
+      Login
+      <ion-icon slot= 'end' name="log-in-outline"></ion-icon>
+    </ion-button>
 
     <ion-row class="ion-align-items-center">
       <ion-col>
         <ion-button fill="clear" color="medium" routerLink="sign-up">Sign Up</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button fill="clear" color="medium" >Forgot Password?</ion-button>
+        <ion-button fill="clear" color="medium" routerLink="forgot-password" >Forgot Password?</ion-button>
       </ion-col>
     </ion-row>
     </form>
