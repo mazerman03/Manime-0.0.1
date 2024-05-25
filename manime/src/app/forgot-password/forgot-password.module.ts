@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 
-import { SignUpPageRoutingModule } from './sign-up-routing.module';
-import { SignUpPage } from './sign-up.page';
+import { ForgotPasswordPageRoutingModule } from './forgot-password-routing.module';
+
+import { ForgotPasswordPage } from './forgot-password.page';
 import { ProjectComponentModule } from '../projects/component/project-component/project-component.module';
 
 @NgModule({
@@ -12,9 +14,9 @@ import { ProjectComponentModule } from '../projects/component/project-component/
     CommonModule,
     FormsModule,
     IonicModule,
-    SignUpPageRoutingModule,
+    ForgotPasswordPageRoutingModule,
     ProjectComponentModule
   ],
-  declarations: [SignUpPage]
+  declarations: [ForgotPasswordPage]
 })
-export class SignUpPageModule { }
+export class ForgotPasswordPageModule {}

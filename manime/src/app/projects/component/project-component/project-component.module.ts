@@ -17,7 +17,7 @@ import { CustomInputComponent } from '../custom-input/custom-input.component';
     FormsModule, 
     IonicModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [CardComponent, ModelPageComponent, ProfileavatarComponent, ModalLandingComponent, FormsModule, ReactiveFormsModule, CustomInputComponent],
 })

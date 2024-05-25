@@ -38,9 +38,9 @@ export class FirebaseService {
   }
 
   /*=====================   Actualizar Usuario   ===============*/
- /*  updateUser(displayName:string) {
+   updateUser(displayName:string) {
     return updateProfile(getAuth().currentUser, { displayName });
-  } */
+  } 
 
   /*=====================  Restablecer Password   ===============*/
   sendRecoveryEmail(email: string){
@@ -55,3 +55,4 @@ export class FirebaseService {
   } */
 
 }
+
