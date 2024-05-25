@@ -30,12 +30,13 @@ export class Tab2Page implements OnInit {
   }
 
   initializeGenreContainer() {
-    console.log(this.service.getGenreList());
+    
     this.service.getGenreList().subscribe(genreEl => {
       genreEl.data.forEach((genreElement: { mal_id: number; name: string; url: string; count: number }) => {
         this.genreContainerList.push(genreElement);
       });
     });
+    console.log(this.genreContainerList);
  }
 
  genreSelectionChanged(genreEvent: { detail: { value: number[]; }; }){
@@ -77,7 +78,6 @@ export class Tab2Page implements OnInit {
           score: element.score,
           modelItem: element,
         });
-        console.log(element.mal_id);
       });
 
       

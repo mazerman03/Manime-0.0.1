@@ -2,14 +2,16 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-
     </ion-buttons>
-    <ion-title class="ion-align-items-center">
+    <ion-title>
       Library
     </ion-title>
-
+    <ion-buttons slot="end">
+      <img src="assets/icon/ManimeLogoFinalAhoraSi.png" alt="Logo" style="height: 40px;">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -21,7 +23,8 @@
     <ion-grid fixed=true>
       <ion-row>
         <ion-col *ngFor="let item of appCardContainer" size-lg="2" size-md="4" size-sm="6" size-xs="6">
-        <app-card [title]="item.title" [image]="item.image" [score]="item.score" [model]="item.modelItem"></app-card>
+        <app-card [title]="item.title" [image]="item.image" [score]="item.score" [model]="item.modelItem" ></app-card>
+        <!-- (libraryNewAdd)="handleLibraryNewAdd($event)" -->
         </ion-col>
       </ion-row>
     </ion-grid>
