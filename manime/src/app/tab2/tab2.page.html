@@ -7,9 +7,6 @@
     <ion-title class="ion-align-items-center">
       Browse
     </ion-title>
-        <app-profileavatar slot="end">
-        
-        </app-profileavatar>
 
   </ion-toolbar>
 </ion-header>
@@ -34,7 +31,7 @@
          <app-card [title]="item.title" [image]="item.image" [score]="item.score" [model]="item.modelItem"></app-card>
         </ion-col>
       </ion-row>
-      <!-- trying out the merge functionality -->
+      
     </ion-grid>
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content

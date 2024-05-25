@@ -1,3 +1,45 @@
-<p>
-  model-page works!
-</p>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModel()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <div style="background: linear-gradient(45deg, black, transparent);">
+    <ion-img class="screen-resize" [src]="image"></ion-img>
+  </div>
+
+ 
+
+  <div>
+    <div class="ion-margin-start">
+      <!-- <ion-toolbar>
+        <h3>{{title}}</h3>
+        <ion-buttons slot="primary" (click)="playVideo()" *ngIf="!isVideoEnabled && videoUrl">
+          <ion-button color="secondary">
+            <ion-icon style="font-size: 40px;" name="play-circle-outline"></ion-icon>
+            PLAY
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar> -->
+      <div>
+        <ion-toolbar>
+          <div class="ion-margin-bottom">
+            <ion-chip color="dark" outline>Release Date: {{season}} {{year}}</ion-chip>
+            <ion-chip color="dark" outline>{{score}}</ion-chip>
+          </div>
+        </ion-toolbar>
+      </div>
+      <ion-toolbar>
+        <ion-text>{{synopsis}}</ion-text>
+      </ion-toolbar>
+    </div>
+  </div>
+
+
+
+</ion-content>

@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnimeResponse } from 'src/models/anime-data.model';
+import { ModalController } from '@ionic/angular';
+import { Anime, AnimeResponse } from 'src/models/anime-data.model';
 import { GenreResponse } from 'src/models/genre-data.model';
+import { ModelPageComponent } from 'src/app/projects/component/model-page/model-page.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JikanService {
-
-  constructor(private http: HttpClient) { }
+  currentModel: any[] = [];
+  constructor(private http: HttpClient, public modalController: ModalController) { }
 
   getGenreList(): Observable<GenreResponse> {
     const requestURL = 'https://api.jikan.moe/v4/genres/anime';
@@ -34,9 +36,9 @@ export class JikanService {
     return this.http.get<AnimeResponse>(requestURL);
   }
 
-  getAnimeById(id: number): Observable<any> {
+  getAnimeById(id: number): Observable<AnimeResponse> {
     const requestURL = `https://api.jikan.moe/v4/anime/${id}`
-    return this.http.get(requestURL);
+    return this.http.get<AnimeResponse>(requestURL);
   }
 
   getAnimeNews(): Observable<any> {
@@ -58,4 +60,20 @@ export class JikanService {
     }
     
   }
+
+  async presentModal(modelItem: Anime) {
+    const modal = await this.modalController.create({
+      component: ModelPageComponent,
+      componentProps:{ modelItemList: modelItem}
+    });
+
+    this.currentModel.push(modal);
+    return await modal.present();
+  }
+
+ 
+  dismissModel() {
+    this.currentModel[this.currentModel.length - 1].dismiss().then(() => { this.currentModel.pop(); });
+  }
+
 }

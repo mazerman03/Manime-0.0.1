@@ -1,7 +1,6 @@
-<div class="card" (click)="cardClickEventTrigger(model)">
-  
+<div class="card" (click)="openModal(model)">
+  <ion-badge class="badge">{{score}}</ion-badge>
   <div>
-    <ion-badge class="badge">{{score}}</ion-badge>
     <ion-img [src]="image"></ion-img>
   </div>
   <ion-title class="ion-margin-vertical text-content">{{title}}</ion-title>
