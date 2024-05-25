@@ -7,7 +7,7 @@
 
 <ion-content class="ion-padding">
   <div class="login-container">
-    <form>
+    <form [formGroup] = "form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
     <!----------- Input Email ------------>
     <app-custom-input autocomplete="email" [control]="form.controls.email" type="email" label="Correo: "
       icon="mail-outline">
@@ -18,7 +18,7 @@
       label="Contrasena">
     </app-custom-input>
 
-    <ion-button expand="block" color="primary" >Login</ion-button>
+    <ion-button expand="block" color="primary" type="submit" >Login</ion-button>
 
     <ion-row class="ion-align-items-center">
       <ion-col>

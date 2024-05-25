@@ -9,6 +9,8 @@ import {
   updateProfile,
   sendPasswordResetEmail
 } from 'firebase/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,9 @@ import {
 export class FirebaseService {
   auth = inject(AngularFireAuth);
   firestore= inject (AngularFirestore);
-  utilsSvc = inject( UtilsService);
+  /* utilsSvc = inject( UtilsService);
   storage= inject(AngularFireStorage);
-
+ */
 
   /*=====================   Acceder ===============*/
 
@@ -36,9 +38,9 @@ export class FirebaseService {
   }
 
   /*=====================   Actualizar Usuario   ===============*/
-  updateUser(displayName:string) {
+ /*  updateUser(displayName:string) {
     return updateProfile(getAuth().currentUser, { displayName });
-  }
+  } */
 
   /*=====================  Restablecer Password   ===============*/
   sendRecoveryEmail(email: string){
@@ -46,10 +48,10 @@ export class FirebaseService {
   }
 
   /*=====================  Cerrar Sesión   ===============*/
-  signOut(){
+ /*  signOut(){
     getAuth().signOut();
     localStorage.removeItem('user');
     this.utilsSvc.routerLink('/auth')
-  }
+  } */
 
 }
