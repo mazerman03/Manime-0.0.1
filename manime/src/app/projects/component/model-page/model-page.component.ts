@@ -42,14 +42,20 @@ export class ModelPageComponent implements OnInit {
   closeModel() {
     this.service.dismissModel();
   }
-
-  
-
   cardEventListener(modelItem: Anime) {
-    forkJoin(this.service.getAnimeById(modelItem.mal_id), this.service.presentModal(modelItem));}
+    forkJoin(this.service.getAnimeById(modelItem.mal_id), this.service.presentModal(modelItem));
+  }
+
+  // In process of developing
+
+   libraryChanged(libraryEvent: any){
+    }
+    
+ } 
+
+ 
     
     
   
 
  
-}
