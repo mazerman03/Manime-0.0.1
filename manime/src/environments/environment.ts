@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
 
-  firebaseConfig = {
+  firebaseConfig: {
 
     apiKey: "AIzaSyB-6i6XJ4UUzFMODyg4AuxcduKQDXq0b9Y",
   
@@ -20,7 +20,7 @@ export const environment = {
   
     appId: "1:1003321030986:web:3e3e19bafb481a6861e9b3"
   
-  };
+  },
   
 };
 
