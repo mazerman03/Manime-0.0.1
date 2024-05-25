@@ -1,25 +1,46 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
 })
-export class Tab4Page implements OnInit {
+export class Tab4Page{
   user = {
-    username: 'User123',
-    description: 'This is a description',
+    username: 'Username',
+    description: 'Share a brief description of yourself',
     address: ''
   };
   editingUsername = false;
   editingDescription = false;
 
-  constructor() { }
+  constructor(
+    private actionSheetCtrl: ActionSheetController,
 
-  ngOnInit() { }
-
-  changeAvatar() {
-    // Functionality to change avatar
+    private platform: Platform
+  ) { }
+  async changeAvatar() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Select Avatar Source',
+      buttons: [
+        {
+          text: 'Load from Library',
+          handler: () => {
+          },
+        },
+        {
+          text: 'Use Camera',
+          handler: () => {
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+      ],
+    });
+    await actionSheet.present();
   }
 
   editUsername() {
@@ -28,7 +49,6 @@ export class Tab4Page implements OnInit {
 
   saveUsername() {
     this.editingUsername = false;
-    // Functionality to save username
   }
 
   editDescription() {
@@ -37,15 +57,14 @@ export class Tab4Page implements OnInit {
 
   saveDescription() {
     this.editingDescription = false;
-    // Functionality to save description
   }
 
   locate() {
   
    if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-     this.user.address = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+     this.user.address = `${position.coords.latitude}, ${position.coords.longitude}`;
      });
-     }
+    }
   }
 }
