@@ -9,7 +9,6 @@ import { ModalLandingComponent } from '../modal-landing/modal-landing.component'
 import { CustomInputComponent } from '../custom-input/custom-input.component';
 
 
-
 @NgModule({
   declarations: [CardComponent, ModelPageComponent, ProfileavatarComponent, ModalLandingComponent, CustomInputComponent],
   imports: [

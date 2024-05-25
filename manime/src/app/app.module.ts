@@ -15,10 +15,17 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getFunctions, provideFunctions } from '@angular/fire/functions';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AngularFireModule.initializeApp(environment.firebaseConfig)],
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule, 
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    LeafletModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideFirebaseApp(() => initializeApp({"projectId":"manime-8695f","appId":"1:1003321030986:web:3e3e19bafb481a6861e9b3","storageBucket":"manime-8695f.appspot.com","apiKey":"AIzaSyB-6i6XJ4UUzFMODyg4AuxcduKQDXq0b9Y","authDomain":"manime-8695f.firebaseapp.com","messagingSenderId":"1003321030986"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideFunctions(() => getFunctions()), provideStorage(() => getStorage())],
   bootstrap: [AppComponent],
 })
