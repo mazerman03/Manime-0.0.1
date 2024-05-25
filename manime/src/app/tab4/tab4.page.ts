@@ -8,8 +8,8 @@ import { ActionSheetController, Platform } from '@ionic/angular';
 export class Tab4Page {
   profileImage: string = 'assets/default-avatar.png';
   user = {
-    username: '_______',
-    description: 'Comparte una breve descripcion de ti!' 
+    username: 'Username',
+    description: 'Share a brief description of yourself!' 
   };
   editingUsername = false;
   editingDescription = false;
