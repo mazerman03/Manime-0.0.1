@@ -34,6 +34,7 @@ export class Tab1Page implements OnInit {
           score: element.score,
           modelItem: element,
         });
+
       });
      });
     } 

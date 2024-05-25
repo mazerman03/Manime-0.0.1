@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
 import { JikanService } from '../../api/service/jikan.service';
@@ -11,7 +11,8 @@ import { Anime } from 'src/models/anime-data.model';
 })
 export class ModelPageComponent implements OnInit {
   @Input() modelItemList!: Anime;
-
+  @Output() libraryNewAdd = new EventEmitter<number>();
+  
   isLoading: boolean = false;
   id!: number;
   title!: string;
@@ -42,14 +43,15 @@ export class ModelPageComponent implements OnInit {
   closeModel() {
     this.service.dismissModel();
   }
+  
   cardEventListener(modelItem: Anime) {
     forkJoin(this.service.getAnimeById(modelItem.mal_id), this.service.presentModal(modelItem));
   }
 
   // In process of developing
-
-   libraryChanged(libraryEvent: any){
-    }
+  libraryChanged() {
+    this.libraryNewAdd.emit(this.id);
+  }
     
  } 
 

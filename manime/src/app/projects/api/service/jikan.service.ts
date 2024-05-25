@@ -11,7 +11,7 @@ import { ModelPageComponent } from 'src/app/projects/component/model-page/model-
 })
 export class JikanService {
   currentModel: any[] = [];
-  libraryListContainer: number[] = [9253, 52701, 11061, 28851, 5114, 31859, 41467, 6594, 21, 210, 47917, 1575, 20583, 11887];
+  libraryListContainer: number[] = [];
   constructor(private http: HttpClient, public modalController: ModalController) { }
 
   getGenreList(): Observable<GenreResponse> {
@@ -43,16 +43,19 @@ export class JikanService {
     return this.http.get<AnimeResponse>(requestURL);
   }
 
-  getAnimeById(id: number): Observable<AnimeResponse> {
+  getAnimeById(id: number): Observable<Anime> {
     const requestURL = `https://api.jikan.moe/v4/anime/${id}`
-    return this.http.get<AnimeResponse>(requestURL);
+    return this.http.get<Anime>(requestURL);
   }
 
   getAnimeNews(): Observable<any> {
     const requestURL = `https://api.jikan.moe/v4/anime/1/news?page=1`
     return this.http.get(requestURL);
   }
-
+  getAnimeTestLibrary(): Observable<AnimeResponse> {
+    const URLquery = 'https://api.jikan.moe/v4/anime/?page=1&genres=2';
+    return this.http.get<AnimeResponse>(URLquery);
+  }
 
   getAnimeSearch(page: number,genre_id_filtered: number[]): Observable<AnimeResponse> {
     const requestURL = `https://api.jikan.moe/v4/anime?page=${page}`
@@ -68,7 +71,7 @@ export class JikanService {
     
   }
 
-  async presentModal(modelItem: Anime) {
+/*   async presentModal(modelItem: Anime) {
     const modal = await this.modalController.create({
       component: ModelPageComponent,
       componentProps:{ modelItemList: modelItem}
@@ -81,6 +84,21 @@ export class JikanService {
  
   dismissModel() {
     this.currentModel[this.currentModel.length - 1].dismiss().then(() => { this.currentModel.pop(); });
+  } */
+
+  async presentModal(modelItem: Anime) {
+    const modal = await this.modalController.create({
+      component: ModelPageComponent,
+      componentProps: { modelItemList: modelItem }
+    });
+    return await modal.present();
   }
 
+  dismissModel() {
+    this.modalController.dismiss().then((result) => {
+      console.log('Modal dismissed', result);
+    }).catch((error) => {
+      console.error('Error dismissing modal', error);
+    });
+  }
 }
