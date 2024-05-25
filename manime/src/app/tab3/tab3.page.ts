@@ -26,6 +26,22 @@ export class Tab3Page implements OnInit {
   initializeLibraryContainer() {
     this.service.getLibraryListTEST().forEach((mal_id: number) => {this.LibraryContainerList.push(mal_id);  });
   }
+
+
+
+// In process of developing
+
+
+/* 
+  libraryChanged(genreEvent: { detail: { value: number[]; }; }){
+    this.genreSelectedValue = genreEvent.detail.value;
+    if (this.genreSelectedValue.length > 0 || this.genreSelectedValue != null) {
+      this.page = 1;
+      this.appCardContainer = [];
+      this.loadAnimeSearchContainer();
+    }
+ } */
+
   initializeLibraryAnimeContainerList(){
     
     this.LibraryContainerList.forEach((libraryEl: number) => 
