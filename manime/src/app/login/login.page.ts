@@ -13,7 +13,6 @@ import { UtilsService } from '../projects/api/service/utils.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit{
-  loginData = { email: '', password: '' };
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
