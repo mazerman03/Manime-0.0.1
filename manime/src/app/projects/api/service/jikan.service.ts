@@ -11,12 +11,19 @@ import { ModelPageComponent } from 'src/app/projects/component/model-page/model-
 })
 export class JikanService {
   currentModel: any[] = [];
+  libraryListContainer: number[] = [9253, 52701, 11061, 28851, 5114, 31859, 41467, 6594, 21, 210, 47917, 1575, 20583, 11887];
   constructor(private http: HttpClient, public modalController: ModalController) { }
 
   getGenreList(): Observable<GenreResponse> {
     const requestURL = 'https://api.jikan.moe/v4/genres/anime';
     return this.http.get<GenreResponse>(requestURL);
   }
+
+  getLibraryListTEST(): number[] {
+    console.log(this.libraryListContainer);
+    return this.libraryListContainer;
+  }
+    
 
   getSeasonalAnimeList(year: number, season: string ): Observable<any> {
     const requestURL = `https://api.jikan.moe/v4/seasons/${year}/${season}`

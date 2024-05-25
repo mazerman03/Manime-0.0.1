@@ -58,7 +58,9 @@ export class Tab2Page implements OnInit {
           score: element.score,
           modelItem: element,
         });
-      })
+      }
+    )
+     
      });
     
      this.firstTopPage = false;
@@ -75,6 +77,7 @@ export class Tab2Page implements OnInit {
           score: element.score,
           modelItem: element,
         });
+        console.log(element.mal_id);
       });
 
       
