@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegistrationPageRoutingModule } from './registration-routing.module';
+import { ResetPasswordPageRoutingModule } from './reset-password-routing.module';
 
-import { RegistrationPage } from './registration.page';
+import { ResetPasswordPage } from './reset-password.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegistrationPageRoutingModule
+    ResetPasswordPageRoutingModule
   ],
-  declarations: [RegistrationPage]
+  declarations: [ResetPasswordPage]
 })
-export class RegistrationPageModule {}
+export class ResetPasswordPageModule {}

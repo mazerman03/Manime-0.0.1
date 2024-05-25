@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="signup-container">
+    <ion-item lines="none">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="signupData.email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" [(ngModel)]="signupData.username"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="signupData.password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)]="signupData.confirmPassword"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="signup()">Sign Up</ion-button>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-button fill="clear" color="medium" (click)="goToLogin()">Login</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
