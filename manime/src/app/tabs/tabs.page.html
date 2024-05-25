@@ -1,5 +1,4 @@
 <ion-tabs>
-
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1" href="/tabs/tab1">
       <ion-icon aria-hidden="true" name="home"></ion-icon>
@@ -16,11 +15,9 @@
       <ion-label>Library</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab4" href="/tabs/tab4">
-      <ion-icon name="person-circle-outline"></ion-icon>    
+    <ion-tab-button (click)="navigateToAccount()">
+      <ion-icon name="person-circle-outline"></ion-icon>
       <ion-label>Account</ion-label>
-
     </ion-tab-button>
   </ion-tab-bar>
-
 </ion-tabs>

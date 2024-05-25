@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FirebaseService } from '../projects/api/service/firebase.service';
 import { user } from 'src/models/user-data.model';
 import { UtilsService } from '../projects/api/service/utils.service';
+import { AuthService } from '../projects/api/service/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,15 +15,15 @@ export class SignUpPage implements OnInit {
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
+  authService = inject(AuthService);
+  router = inject(Router);
 
   /* ======FORM GROUP======= */
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    name: new FormControl('',[Validators.required,Validators.minLength(3)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
-
-  
 
   ngOnInit() { }
 
@@ -32,7 +33,9 @@ export class SignUpPage implements OnInit {
       await loading.present();
       this.firebaseSvc.signUp(this.form.value as user)
         .then(async res => {
-          await this.firebaseSvc.updateUser(this.form.value.name)
+          await this.firebaseSvc.updateUser(this.form.value.name);
+          this.authService.login(); 
+          this.router.navigate(['/tabs/tab4']); 
           console.log(res);
         }).catch(error => {
           console.log(error);
@@ -45,9 +48,7 @@ export class SignUpPage implements OnInit {
           });
         }).finally(() => {
           loading.dismiss();
-        })
+        });
     }
   }
 }
-
-
