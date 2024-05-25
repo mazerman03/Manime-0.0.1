@@ -19,18 +19,15 @@ export class ProfileavatarComponent {
   }
 
   onDismissChange(canDismiss: boolean) {
-    // Allows the modal to be dismissed based on the state of the checkbox
     this.canDismissOverride = canDismiss;
   }
 
   onWillPresent() {
-    // Resets the override when the modal is presented
     this.canDismissOverride = false;
   }
 
   canDismiss = async () => {
     if (this.canDismissOverride) {
-      // Checks for the override flag to return early if we can dismiss the overlay immediately
       return true;
     }
 
