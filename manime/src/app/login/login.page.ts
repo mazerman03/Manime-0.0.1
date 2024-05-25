@@ -10,7 +10,7 @@ import { FirebaseService } from '../projects/api/service/firebase.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit{
   loginData = { email: '', password: '' };
 
   /* ======FORM GROUP======= */
@@ -19,6 +19,6 @@ export class LoginPage {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private router: Router) { }
+  ngOnInit() {}
 
 }
