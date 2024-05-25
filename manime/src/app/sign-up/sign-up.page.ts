@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Import NavController
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sign-up',

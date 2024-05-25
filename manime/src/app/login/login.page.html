@@ -7,25 +7,27 @@
 
 <ion-content class="ion-padding">
   <div class="login-container">
-    <ion-item lines="none">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="loginData.email"></ion-input>
-    </ion-item>
+    <form [FormGroup="form" ]>
+    <!----------- Input Email ------------>
+    <app-custom-input autocomplete="email" [control]="form.controls.email" type="email" label="Correo: "
+      icon="mail-outline">
+    </app-custom-input>
 
-    <ion-item lines="none">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
-    </ion-item>
+    <!----------- Input Password ------------>
+    <app-custom-input icon="lock-closed-outline" [control]="form.controls.password" type="password"
+      label="Contrasena">
+    </app-custom-input>
 
-    <ion-button expand="block" color="primary" (click)="login()">Login</ion-button>
+    <ion-button expand="block" color="primary" >Login</ion-button>
 
     <ion-row class="ion-align-items-center">
       <ion-col>
-        <ion-button fill="clear" color="medium" (click)="goToSignup()">Sign Up</ion-button>
+        <ion-button fill="clear" color="medium" >Sign Up</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button fill="clear" color="medium" (click)="forgotPassword()">Forgot Password?</ion-button>
+        <ion-button fill="clear" color="medium" >Forgot Password?</ion-button>
       </ion-col>
     </ion-row>
+    </form>
   </div>
 </ion-content>
