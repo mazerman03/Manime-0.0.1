@@ -53,7 +53,7 @@ export class JikanService {
     return this.http.get(requestURL);
   }
   getAnimeTestLibrary(): Observable<AnimeResponse> {
-    const URLquery = 'https://api.jikan.moe/v4/anime/?page=1&genres=2';
+    const URLquery = 'https://api.jikan.moe/v4/anime/?genres=2';
     return this.http.get<AnimeResponse>(URLquery);
   }
 
