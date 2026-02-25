@@ -7,6 +7,7 @@ import { UtilsService } from '../projects/api/service/utils.service';
 import { AuthService } from '../projects/api/service/auth.service';
 
 @Component({
+  standalone: false,
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
