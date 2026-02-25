@@ -5,6 +5,7 @@ import { JikanService } from '../../api/service/jikan.service';
 import { Anime } from 'src/models/anime-data.model';
 
 @Component({
+  standalone: false,
   selector: 'app-model-page',
   templateUrl: './model-page.component.html',
   styleUrls: ['./model-page.component.scss'],

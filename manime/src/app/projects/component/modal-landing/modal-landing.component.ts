@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { CheckboxCustomEvent, IonModal } from '@ionic/angular';
 @Component({
+  standalone: false,
   selector: 'app-modal-landing',
   templateUrl: './modal-landing.component.html',
   styleUrls: ['./modal-landing.component.scss'],

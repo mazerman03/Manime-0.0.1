@@ -4,6 +4,7 @@ import { JikanService } from '../../api/service/jikan.service';
 import { ModalController } from '@ionic/angular';
 import { ModelPageComponent } from '../model-page/model-page.component';
 @Component({
+  standalone: false,
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],

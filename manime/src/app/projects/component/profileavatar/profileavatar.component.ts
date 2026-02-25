@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 
 @Component({
+  standalone: false,
   selector: 'app-profileavatar',
   templateUrl: 'profileavatar.component.html',
   styleUrls: ["profileavatar.component.scss"]

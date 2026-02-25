@@ -6,6 +6,7 @@ import { FirebaseService } from '../projects/api/service/firebase.service';
 import { UtilsService } from '../projects/api/service/utils.service';
 
 @Component({
+  standalone: false,
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.page.html',
   styleUrls: ['./forgot-password.page.scss'],

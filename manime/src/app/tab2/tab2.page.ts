@@ -4,6 +4,7 @@ import { Genre } from 'src/models/genre-data.model';
 import { Anime } from 'src/models/anime-data.model';
 
 @Component({
+  standalone: false,
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']

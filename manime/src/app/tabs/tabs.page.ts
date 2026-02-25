@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AuthService } from '../projects/api/service/auth.service';
 
 @Component({
+  standalone: false,
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']

@@ -4,6 +4,7 @@ import { Anime } from 'src/models/anime-data.model';
 import { from, concatMap, timer } from 'rxjs';
 
 @Component({
+  standalone: false,
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
