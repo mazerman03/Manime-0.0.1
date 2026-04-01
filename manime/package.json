@@ -68,7 +68,8 @@
     "ajv": "^8.18.0",
     "tar": "^7.5.8",
     "undici": "^7.22.0",
-    "rollup": "^4.59.0"
+    "rollup": "^4.59.0",
+    "serialize-javascript": "^7.0.5"
   },
   "description": "An Ionic project"
 }
